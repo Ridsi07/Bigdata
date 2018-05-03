@@ -1,0 +1,14 @@
+
+ 1) How many players were born in USA
+
+	rdd = sc.textFile("file:/home/training/Downloads/MLBOffensive.csv")
+
+   	rdd.map(lambda line : line.split(",")[2]).map(lambda USA: (USA, 1)).reduceByKey(lambda a,b: a+b).collect()
+
+
+
+2) How many players have played at Yankee Stadium II in there entire career
+
+     rdd = sc.textFile("file:/home/training/Downloads/MLBOffensive.csv")
+
+     rdd.map(lambda line: line.split(",")[2] + line.split(",")[3]).map(lambda Yankee Stadium II:(Yankee Stadium II,1)).reduceByKey(lambda a,b: a+b).collect()

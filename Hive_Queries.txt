@@ -1,0 +1,14 @@
+When are the tickets most likely to be issued? Any seasonality?
+
+
+ALTER TABLE NYCP
+ADD (winter_count integer,summer_count integer,spring_count integer);
+
+INSERT INTO NYCP(winter_count) SELECT COUNT(Issue date where Issue_Date LIKE '[11-3]%' from NYPC);
+
+INSERT INTO NYCP(summer_count) SELECT COUNT(Issue date where Issue_Date LIKE '[4-7]%' from NYPC);
+
+INSERT INTO NYCP(spring_count) SELECT COUNT(Issue date where Issue_Date LIKE '[8-10]%' from NYPC);
+
+
+SELECT GREATEST(winter_count,summer_count,spring_count) FROM NYCP;
